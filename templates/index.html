@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="YouTube の自分の動画・許可された動画を保存するためのシンプルなダウンローダー">
+    <title>ClipKeep — YouTube Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main class="shell">
+      <a class="brand" href="/" aria-label="ClipKeep ホーム"><span class="brand-mark">▶</span> ClipKeep</a>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">PERSONAL MEDIA TOOL</p>
+        <h1 id="page-title">必要な動画を、<br><em>いつでも手元に。</em></h1>
+        <p class="lead">YouTube の自分の動画、またはダウンロードを許可された動画を MP4 / MP3 として保存できます。</p>
+      </section>
+
+      <section class="card" aria-label="ダウンロードフォーム">
+        <label for="url">YouTube リンク</label>
+        <div class="url-row">
+          <input id="url" type="url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="url" required>
+          <button id="inspect" type="button">確認する</button>
+        </div>
+        <p id="error" class="message error" role="alert"></p>
+        <div id="preview" class="preview" hidden>
+          <img id="thumbnail" alt="">
+          <div><strong id="title"></strong><span id="channel"></span></div>
+        </div>
+        <fieldset id="format" disabled>
+          <legend>保存形式</legend>
+          <label class="option"><input type="radio" name="mode" value="video" checked><span><b>MP4</b><small>動画</small></span></label>
+          <label class="option"><input type="radio" name="mode" value="audio"><span><b>MP3</b><small>音声のみ</small></span></label>
+        </fieldset>
+        <button id="download" class="download" type="button" disabled>ダウンロード</button>
+      </section>
+      <p class="notice">本ツールは、あなたが権利を持つコンテンツ、または権利者から保存を許可されたコンテンツにのみご利用ください。YouTube の利用規約を尊重してください。</p>
+    </main>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
