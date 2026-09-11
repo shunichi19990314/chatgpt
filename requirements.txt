@@ -1,0 +1,4 @@
+Flask==3.1.2
+gunicorn==23.0.0
+# YouTube changes frequently; install the current compatible extractor at build time.
+yt-dlp
